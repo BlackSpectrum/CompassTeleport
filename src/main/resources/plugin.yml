@@ -1,0 +1,13 @@
+name: BSPCompassTeleport
+version: 1.0
+main: jenn.compassteleport.CompassTeleport
+commands:
+  compassteleportreload:
+    description: Reloads the Compass Teleport config files.
+    usage: /ctpreload
+    permission: ctp.commands
+    permission-message: You do not have permission to use this command.
+    aliases: [compasstpreload, ctpreload]
+permissions:
+  ctp.commands:
+    default: op

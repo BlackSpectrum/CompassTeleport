@@ -1,0 +1,13 @@
+config:
+  timerLength: 5
+  successMessage: "Teleport succeeded!"
+  failMessage: "Teleport failed!"
+  cantUseMessage: "You cannot use that here."
+example_world:
+  CotWx: 0
+  CotWz: 0
+  CotWradius: 10
+  targetWorld: 'world'
+  targetx: 0
+  targety: 256
+  targetz: 0
