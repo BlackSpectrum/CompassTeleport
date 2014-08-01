@@ -1,6 +1,6 @@
 name: BSPCompassTeleport
-version: 1.1.0
-main: jenn.compassteleport.CompassTeleport
+version: 1.1.1
+main: eu.blackspectrum.compassteleport.CompassTeleport
 commands:
   compassteleportreload:
     description: Reloads the Compass Teleport config files.
