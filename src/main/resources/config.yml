@@ -11,3 +11,5 @@ example_world:
   targetx: 0
   targety: 256
   targetz: 0
+  targetPitch: 0
+  targetYaw: 0

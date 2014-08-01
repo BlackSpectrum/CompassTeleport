@@ -19,7 +19,8 @@ public class CompassTeleport extends JavaPlugin
     public PlayerHurtListener playerHurtListener;
     public HashMap<String, Boolean> teleportingPlayers = new HashMap<String, Boolean>();
     
-    public void onEnable() {
+    @Override
+	public void onEnable() {
         this.yamlHandler = new YamlHandler(this);
         this.logInfo("Yamls loaded!");
         this.commandHandler = new CommandHandler(this);
@@ -31,7 +32,8 @@ public class CompassTeleport extends JavaPlugin
         this.logInfo("Listeners registered!");
     }
     
-    public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
+    @Override
+	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
     	return commandHandler.onCommand(sender, cmd, label, args);
     }
     

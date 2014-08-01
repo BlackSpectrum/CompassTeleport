@@ -54,7 +54,7 @@ public abstract class AbstractCommand
     
     public List<String> getAliases() {
         try {
-            return (List<String>)this.plugin.getCommand(this.name).getAliases();
+            return this.plugin.getCommand(this.name).getAliases();
         }
         catch (NullPointerException e) {
             return null;

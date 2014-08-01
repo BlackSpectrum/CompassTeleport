@@ -16,14 +16,14 @@ public class CommandHandler implements CommandExecutor
         super();
         this.commands = new HashMap<String, AbstractCommand>();
         this.plugin = instance;
-        this.plugin.getCommand("compassteleportreload").setExecutor((CommandExecutor)this);
+        this.plugin.getCommand("compassteleportreload").setExecutor(this);
         this.registerCommands(new AbstractCommand[] { new ReloadCommand(this.plugin) });
     }
     
     private void registerCommands(final AbstractCommand[] abstractCommands) {
         for (final AbstractCommand abstractCommand : abstractCommands) {
             this.commands.put(abstractCommand.getName(), abstractCommand);
-            final List<String> aliases = (List<String>)abstractCommand.getAliases();
+            final List<String> aliases = abstractCommand.getAliases();
             if (abstractCommand.getAliases() != null) {
                 for (final String alias : aliases) {
                     this.commands.put(alias, abstractCommand);

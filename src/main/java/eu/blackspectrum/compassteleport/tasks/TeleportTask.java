@@ -28,6 +28,8 @@ public class TeleportTask extends BukkitRunnable {
     	else if(timer > 0)
         	player.sendMessage("Teleporting in " + timer-- + " seconds. Use again to cancel.");
     	else {
+    		location.setPitch((float)plugin.yamlHandler.config.getDouble(location.getWorld().getName() + ".targetPitch", 0));
+    		location.setYaw((float)plugin.yamlHandler.config.getDouble(location.getWorld().getName() + ".targetYaw", 0));
     		player.teleport(location);
     		player.sendMessage(plugin.yamlHandler.config.getString("config.successMessage"));
     		plugin.teleportingPlayers.remove(player.getName());
