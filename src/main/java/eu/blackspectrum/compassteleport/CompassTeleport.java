@@ -13,10 +13,7 @@ public class CompassTeleport extends JavaPlugin
 {
     public YamlHandler yamlHandler;
     public CommandHandler commandHandler;
-    public CompassUseListener compassUseListener;
-    public CompassSetListener compassSetListener;
-    public PlayerMoveListener playerMoveListener;
-    public PlayerHurtListener playerHurtListener;
+    public PlayerListener playerListener;
     public HashMap<String, Boolean> teleportingPlayers = new HashMap<String, Boolean>();
     
     @Override
@@ -25,10 +22,7 @@ public class CompassTeleport extends JavaPlugin
         this.logInfo("Yamls loaded!");
         this.commandHandler = new CommandHandler(this);
         this.logInfo("Commands registered!");
-        this.compassUseListener = new CompassUseListener(this);
-        this.compassSetListener = new CompassSetListener(this);
-        this.playerMoveListener = new PlayerMoveListener(this);
-        this.playerHurtListener = new PlayerHurtListener(this);
+        this.playerListener = new PlayerListener(this);
         this.logInfo("Listeners registered!");
     }
     

@@ -4,7 +4,6 @@
   <artifactId>compassteleport</artifactId>
   <version>1.1.1</version>
   <build>
-    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
