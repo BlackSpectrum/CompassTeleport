@@ -47,7 +47,8 @@ public class PlayerListener implements Listener {
 		if(event.getEntity() instanceof Player)
 			if(plugin.teleportingPlayers.containsKey(((Player)event.getEntity()).getName())) {
 				plugin.teleportingPlayers.put(((Player)event.getEntity()).getName(), false);
-	    		((Player)event.getEntity()).sendMessage(plugin.yamlHandler.config.getString("config.failMessage"));
+				if(plugin.teleportingPlayers.get(((Player)event.getEntity()).getName()))
+					((Player)event.getEntity()).sendMessage(plugin.yamlHandler.config.getString("config.failMessage"));
 			}
 	}
 	
@@ -63,8 +64,9 @@ public class PlayerListener implements Listener {
 			CotWradius = plugin.yamlHandler.config.getDouble(world.getName() + ".CotWradius", 10);
 			playerLocation = event.getPlayer().getLocation();
 			if(playerLocation.distance(new Location(world, CotWx, playerLocation.getY(), CotWz)) > CotWradius) {
+				if(plugin.teleportingPlayers.get(event.getPlayer().getName()))
+					event.getPlayer().sendMessage(plugin.yamlHandler.config.getString("config.failMessage"));
 				plugin.teleportingPlayers.put(event.getPlayer().getName(), false);
-	    		event.getPlayer().sendMessage(plugin.yamlHandler.config.getString("config.failMessage"));
 			}
 		}
 	}
@@ -79,7 +81,11 @@ public class PlayerListener implements Listener {
 			if (event.hasItem() && event.getItem().getTypeId() == 345) {
 				world = event.getPlayer().getWorld();
 				if(plugin.teleportingPlayers.containsKey(event.getPlayer().getName()))
+				{
+					if(plugin.teleportingPlayers.get(event.getPlayer().getName()))
+						event.getPlayer().sendMessage(plugin.yamlHandler.config.getString("config.failMessage"));
 					plugin.teleportingPlayers.put(event.getPlayer().getName(), false);
+				}
 				else if(plugin.yamlHandler.config.contains(world.getName())){
 					CotWx = plugin.yamlHandler.config.getDouble(world.getName() + ".CotWx", 0);
 					CotWz = plugin.yamlHandler.config.getDouble(world.getName() + ".CotWz", 0);
