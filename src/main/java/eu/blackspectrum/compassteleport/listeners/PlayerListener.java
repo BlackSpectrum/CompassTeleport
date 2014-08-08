@@ -77,7 +77,7 @@ public class PlayerListener implements Listener {
 		double CotWx, CotWz, CotWradius, x, y, z;
 		Location playerLocation;
 		String targetWorldName;
-		if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)
+		if (event.getAction() == Action.RIGHT_CLICK_AIR)
 			if (event.hasItem() && event.getItem().getTypeId() == 345) {
 				world = event.getPlayer().getWorld();
 				if(plugin.teleportingPlayers.containsKey(event.getPlayer().getName()))
